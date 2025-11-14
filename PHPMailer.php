@@ -1,4 +1,5 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -7,7 +8,7 @@ require 'vendor/autoload.php';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $name = $_POST['name'];
-    $email = $_POST['email']; 
+    $email = $_POST['email'];
 
     $mail = new PHPMailer(true);
 
@@ -19,13 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = $_ENV['SMTP_EMAIL'];
-        $mail->Password   = $_ENV['SMTP_PASS'];         
+        $mail->Password   = $_ENV['SMTP_PASS'];
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
         // Sender & recipient
         $mail->setFrom('gardiolamark7@gmail.com', 'Mr. Gardiola');
-        $mail->addAddress($email, $name); // Recipient from form
+        $mail->addAddress($email, $name);
 
         // Email content
         $mail->isHTML(true);
@@ -38,4 +39,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "Mailer Error: {$mail->ErrorInfo}";
     }
 }
-?>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>PHPMailer Test</title>
 </head>
+
 <body>
   <h2>Send Email</h2>
   <form action="PHPMailer.php" method="POST">
@@ -12,4 +14,5 @@
     <button type="submit">Test</button>
   </form>
 </body>
+
 </html>
